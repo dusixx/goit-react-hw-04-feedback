@@ -3,7 +3,7 @@ import { string } from 'prop-types';
 import { RefreshButton } from '../RefreshButton';
 import { FeedbackOptions } from './FeedbackOptions';
 import { Container, Title } from './FeedbackWidget.styled';
-import Stats from './Stats';
+import Stats from './Stats/Stats';
 
 const initialFeedback = {
   bad: 0,

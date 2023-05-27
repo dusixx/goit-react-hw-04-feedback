@@ -1,4 +1,4 @@
-import { Notification } from './FeedbackWidget.styled';
+import { Notification } from './Stats.styled';
 
 const MSG_NO_FEEDBACK = 'There is no feedback';
 const COLOR_INFO = '#e0f4ff';

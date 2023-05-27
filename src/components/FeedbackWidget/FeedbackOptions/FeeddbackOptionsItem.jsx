@@ -1,7 +1,7 @@
 import myTheme from 'styles/theme';
 import { cap } from 'components/utils';
 import { string, number } from 'prop-types';
-import { Option, Label, Button } from './FeedbackOptions.styled';
+import { Option, Label, Button } from './FeedbackOptionsItem.styled';
 
 export const FeedbackOptionsItem = ({
   onClick,
