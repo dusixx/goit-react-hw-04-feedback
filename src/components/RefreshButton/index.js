@@ -1,1 +1,1 @@
-export { default } from './RefreshButton.jsx';
+export * from './RefreshButton.jsx';

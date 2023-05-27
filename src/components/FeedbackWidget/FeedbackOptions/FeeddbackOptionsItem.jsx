@@ -3,7 +3,7 @@ import { cap } from 'components/utils';
 import { string, number } from 'prop-types';
 import { Option, Label, Button } from './FeedbackOptions.styled';
 
-const FeedbackOptionsItem = ({
+export const FeedbackOptionsItem = ({
   onClick,
   feedbackType,
   value = 0,
@@ -25,5 +25,3 @@ FeedbackOptionsItem.propTypes = {
   feedbackType: string.isRequired,
   value: number.isRequired,
 };
-
-export default FeedbackOptionsItem;

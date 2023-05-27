@@ -1,15 +1,15 @@
 import { func, number, exact } from 'prop-types';
 import { OptionsList } from './FeedbackOptions.styled';
-import FeedbackOptionsItem from './FeeddbackOptionsItem';
+import { FeedbackOptionsItem } from './FeeddbackOptionsItem';
 
-const FeedbackOptions = ({ values, onLeaveFeedback, iconSize }) => (
+export const FeedbackOptions = ({ value, onLeaveFeedback, iconSize }) => (
   <OptionsList>
-    {Object.keys(values).map(feedbackType => (
+    {Object.keys(value).map(feedbackType => (
       <FeedbackOptionsItem
         key={feedbackType}
         feedbackType={feedbackType}
         iconSize={iconSize}
-        value={values[feedbackType]}
+        value={value[feedbackType]}
         onClick={onLeaveFeedback}
       />
     ))}
@@ -19,12 +19,9 @@ const FeedbackOptions = ({ values, onLeaveFeedback, iconSize }) => (
 FeedbackOptions.propTypes = {
   onClick: func,
   iconSize: number,
-
-  values: exact({
+  value: exact({
     bad: number.isRequired,
     neutral: number.isRequired,
     good: number.isRequired,
   }),
 };
-
-export default FeedbackOptions;

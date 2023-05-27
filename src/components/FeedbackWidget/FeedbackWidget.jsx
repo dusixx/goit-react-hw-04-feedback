@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { string } from 'prop-types';
-import RefreshButton from '../RefreshButton';
-import FeedbackOptions from './FeedbackOptions';
+import { RefreshButton } from '../RefreshButton';
+import { FeedbackOptions } from './FeedbackOptions';
 import { Container, Title } from './FeedbackWidget.styled';
 import Stats from './Stats';
 
@@ -29,10 +29,7 @@ export const FeedbackWidget = ({ title }) => {
     <Container>
       {title && <Title>{title}</Title>}
       <RefreshButton size={18} onClick={() => setFeedback(initialFeedback)} />
-      <FeedbackOptions
-        values={feedback}
-        onLeaveFeedback={handleFeedbackLeave}
-      />
+      <FeedbackOptions value={feedback} onLeaveFeedback={handleFeedbackLeave} />
       <Stats {...getStats()} />
     </Container>
   );
