@@ -1,1 +1,1 @@
-export { default } from './FeedbackWidget.jsx';
+export * from './FeedbackWidget.jsx';

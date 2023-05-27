@@ -1,55 +1,43 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { string } from 'prop-types';
 import RefreshButton from '../RefreshButton';
 import FeedbackOptions from './FeedbackOptions';
 import { Container, Title } from './FeedbackWidget.styled';
 import Stats from './Stats';
 
-const initialState = {
+const initialFeedback = {
   bad: 0,
   neutral: 0,
   good: 0,
 };
 
-export default class FeedbackWidget extends Component {
-  static propTypes = {
-    title: string,
-  };
+export const FeedbackWidget = ({ title }) => {
+  const [feedback, setFeedback] = useState(initialFeedback);
 
-  state = { ...initialState };
+  const getStats = () => {
+    const total = Object.values(feedback).reduce((sum, v) => sum + v, 0);
+    const positive = ((feedback.good / total) * 100).toFixed(0);
 
-  get totalFeedback() {
-    return Object.values(this.state).reduce((sum, v) => sum + v, 0);
-  }
-
-  getStats = () => {
-    const total = this.totalFeedback;
-    const positive = ((this.state.good / total) * 100).toFixed(0);
     return { total, positive };
   };
 
-  handleFeedbackLeave = type => {
-    this.setState(curState => ({ [type]: curState[type] + 1 }));
+  const handleFeedbackLeave = type => {
+    setFeedback(cur => ({ ...cur, [type]: cur[type] + 1 }));
   };
 
-  handleFormReset = () => {
-    this.setState({ ...initialState });
-  };
+  return (
+    <Container>
+      {title && <Title>{title}</Title>}
+      <RefreshButton size={18} onClick={() => setFeedback(initialFeedback)} />
+      <FeedbackOptions
+        values={feedback}
+        onLeaveFeedback={handleFeedbackLeave}
+      />
+      <Stats {...getStats()} />
+    </Container>
+  );
+};
 
-  render() {
-    const { handleFeedbackLeave, getStats, handleFormReset } = this;
-    const { title } = this.props;
-
-    return (
-      <Container>
-        {title && <Title>{title}</Title>}
-        <RefreshButton size={18} onClick={handleFormReset} />
-        <FeedbackOptions
-          values={{ ...this.state }}
-          onLeaveFeedback={handleFeedbackLeave}
-        />
-        <Stats {...getStats()} />
-      </Container>
-    );
-  }
-}
+FeedbackWidget.propTypes = {
+  title: string,
+};

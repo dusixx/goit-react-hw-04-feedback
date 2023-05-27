@@ -1,6 +1,5 @@
 import { Container } from './App.styled';
-import FeedbackWidget from 'components/FeedbackWidget';
-import React from 'react';
+import { FeedbackWidget } from 'components/FeedbackWidget';
 
 export const App = () => (
   <Container>
