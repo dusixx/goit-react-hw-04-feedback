@@ -1,10 +1,12 @@
 import { Notification } from './FeedbackWidget.styled';
 
 const MSG_NO_FEEDBACK = 'There is no feedback';
+const COLOR_INFO = '#e0f4ff';
+const COLOR_WARN = '#ffe6d9';
 
 const Stats = ({ total, positive }) => {
   return total ? (
-    <Notification color="#e0f4ff">
+    <Notification color={COLOR_INFO}>
       <span>
         Total:&nbsp;<b>{total}</b>
       </span>
@@ -13,7 +15,7 @@ const Stats = ({ total, positive }) => {
       </span>
     </Notification>
   ) : (
-    <Notification color="#ffe6d9">{MSG_NO_FEEDBACK}</Notification>
+    <Notification color={COLOR_WARN}>{MSG_NO_FEEDBACK}</Notification>
   );
 };
 

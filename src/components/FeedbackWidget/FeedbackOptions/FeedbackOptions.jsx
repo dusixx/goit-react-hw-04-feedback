@@ -4,12 +4,12 @@ import FeedbackOptionsItem from './FeeddbackOptionsItem';
 
 const FeedbackOptions = ({ values, onLeaveFeedback, iconSize }) => (
   <OptionsList>
-    {Object.keys(values).map(type => (
+    {Object.keys(values).map(feedbackType => (
       <FeedbackOptionsItem
-        key={type}
-        type={type}
+        key={feedbackType}
+        feedbackType={feedbackType}
         iconSize={iconSize}
-        value={values[type]}
+        value={values[feedbackType]}
         onClick={onLeaveFeedback}
       />
     ))}
