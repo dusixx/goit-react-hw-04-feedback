@@ -1,5 +1,5 @@
 import myTheme from 'styles/theme';
-import { cap } from 'components/utils';
+import { cap } from 'utils';
 import { string, number } from 'prop-types';
 import { Option, Label, Button } from './FeedbackOptionsItem.styled';
 
